@@ -7,6 +7,9 @@ export default function Index() {
         <button onClick={(e) => auth.signout()}>Sign Out</button>
       </div>
   ) : (
-      <button onClick={(e) => auth.signinWithGitHub()}>Sign In</button>
+      <div>
+          <button onClick={(e) => auth.signinWithGitHub()}>Sign In With GitHub</button>
+          <button onClick={(e) => auth.signinWithGoogle()}>Sign In With Google</button>
+      </div>
   )
 }
