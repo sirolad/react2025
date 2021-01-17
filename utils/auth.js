@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, createContext } from 'react'
 import firebase from './firebase'
 import Router from 'next/router'
+import {createUser} from "./db";
 
 const authContext = createContext()
 export function AuthProvider({ children }) {
@@ -17,6 +18,7 @@ function useProvideAuth() {
         if (rawUser) {
             const user = formatUser(rawUser)
             setLoading(false)
+            createUser(user.uid, user)
             setUser(user)
             return user
         } else {
